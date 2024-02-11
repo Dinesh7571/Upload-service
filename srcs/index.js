@@ -2,13 +2,13 @@ import express from'express';
 import fs from 'fs';
 import path from 'path';
 import cors from 'cors';
-import generateId from'./srcs/idGenerate.js';
+import generateId from'./idGenerate.js';
 import simpleGit from 'simple-git';
-import { getAllFilesPaths } from './srcs/getAllFilePaths.js';
-import { storage } from './srcs/firebase.js';
+import { getAllFilesPaths } from './getAllFilePaths.js';
+import { storage } from './firebase.js';
 
-import { buildProject } from './srcs/build.js';
-import { uploadImageToFirebaseStorage } from './srcs/fileUpload.js';
+import { buildProject } from './build.js';
+import { uploadImageToFirebaseStorage } from './fileUpload.js';
 
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
@@ -23,12 +23,12 @@ app.post('/deploy',async(req,res)=>{
     await simpleGit().clone(repoUrl,`output/${id}`);
     await buildProject(id);
 
-   //const currentModulePath = import.meta.url;
-  // const buildDistPath = path.join(new URL('.', currentModulePath).pathname.slice(1), `output/${id}/dist`);
+   const currentModulePath = import.meta.url;
+   const buildDistPath = path.join(new URL('.', currentModulePath).pathname.slice(1), `output/${id}/dist`);
   
-   const __filename = fileURLToPath(import.meta.url);
-   const __dirname = dirname(__filename);
-   const buildDistPath = path.join(__dirname, `/output/${id}/dist`);
+   //const __filename = fileURLToPath(import.meta.url);
+  // const __dirname = dirname(__filename);
+  // const buildDistPath = path.join(__dirname, `/output/${id}/dist`);
    //const buildDistPath = path.join(`/output/${id}/dist`);
    console.log(buildDistPath);
 
