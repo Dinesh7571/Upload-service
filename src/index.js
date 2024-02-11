@@ -20,9 +20,9 @@ app.post('/deploy',async(req,res)=>{
    await simpleGit().clone(repoUrl,`output/${id}`);
     await buildProject(id);
 
-   const currentModulePath = import.meta.url;
+  // const currentModulePath = import.meta.url;
   // const buildDistPath = path.join(new URL('.', currentModulePath).pathname.slice(1), `output/${id}/dist`);
-  const buildDistPath = path.join(currentModulePath, `output/${id}/dist`);
+  const buildDistPath = path.join(__dirname, `output/${id}/dist`);
    console.log(buildDistPath);
    const filesPath = await getAllFilesPaths(buildDistPath);
    const storagePathInFirebase = `build/${id}`; // Replace with the desired storage path
