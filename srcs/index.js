@@ -28,8 +28,8 @@ app.post('/deploy',async(req,res)=>{
   
    const __filename = fileURLToPath(import.meta.url);
    const __dirname = dirname(__filename);
-   //const buildDistPath = path.join(__dirname, `/output/${id}/dist`);
-   const buildDistPath = path.join(`/output/${id}/dist`);
+   const buildDistPath = path.join(__dirname, `/output/${id}/dist`);
+   //const buildDistPath = path.join(`/output/${id}/dist`);
    console.log(buildDistPath);
 
 
