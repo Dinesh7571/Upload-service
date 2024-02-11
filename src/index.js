@@ -17,15 +17,13 @@ app.use(express.json());
 app.post('/deploy',async(req,res)=>{
     const repoUrl=req.body.repoUrl;
     const id=generateId();
-
-
-    await simpleGit().clone(repoUrl,`output/${id}`);
+   await simpleGit().clone(repoUrl,`output/${id}`);
     await buildProject(id);
 
    const currentModulePath = import.meta.url;
    const buildDistPath = path.join(new URL('.', currentModulePath).pathname.slice(1), `output/${id}/dist`);
-   
-   const filesPath = getAllFilesPaths(buildDistPath);
+   console.log(buildDistPath);
+   const filesPath = await getAllFilesPaths(buildDistPath);
    const storagePathInFirebase = `build/${id}`; // Replace with the desired storage path
    
    await Promise.all(filesPath.map(async (file) => {
