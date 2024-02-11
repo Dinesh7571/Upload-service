@@ -1,0 +1,34 @@
+{
+  "name": "upload-service",
+  "version": "1.0.0",
+  "description": "this a first part of making react deployment server this backend  is for upload server.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dinesh7571/Upload-service.git"
+  },
+  "keywords": [
+    "deployment",
+    "server",
+    "for",
+    "react"
+  ],
+  "author": "Dinesh7571",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dinesh7571/Upload-service/issues"
+  },
+  "homepage": "https://github.com/Dinesh7571/Upload-service#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "firebase": "^10.8.0",
+    "firebase-admin": "^12.0.0",
+    "redis": "^4.6.13",
+    "simple-git": "^3.22.0"
+  }
+}
