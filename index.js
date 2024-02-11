@@ -2,13 +2,13 @@ import express from'express';
 import fs from 'fs';
 import path from 'path';
 import cors from 'cors';
-import generateId from'./idGenerate.js';
+import generateId from'./srcs/idGenerate.js';
 import simpleGit from 'simple-git';
-import { getAllFilesPaths } from './getAllFilePaths.js';
-import { storage } from './firebase.js';
+import { getAllFilesPaths } from './srcs/getAllFilePaths.js';
+import { storage } from './srcs/firebase.js';
 
-import { buildProject } from './build.js';
-import { uploadImageToFirebaseStorage } from './fileUpload.js';
+import { buildProject } from './srcs/build.js';
+import { uploadImageToFirebaseStorage } from './srcs/fileUpload.js';
 
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';

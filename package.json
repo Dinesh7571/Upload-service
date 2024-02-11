@@ -2,7 +2,7 @@
   "name": "upload-service",
   "version": "1.0.0",
   "description": "this a first part of making react deployment server this backend  is for upload server.",
-  "main": "srcs/index.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
