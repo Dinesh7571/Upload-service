@@ -9,6 +9,9 @@ import { storage } from './firebase.js';
 
 import { buildProject } from './build.js';
 import { uploadImageToFirebaseStorage } from './fileUpload.js';
+
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 //import {fs} from 'fs';
 const app= express();
 app.use(cors())
@@ -20,10 +23,15 @@ app.post('/deploy',async(req,res)=>{
     await simpleGit().clone(repoUrl,`output/${id}`);
     await buildProject(id);
 
-   const currentModulePath = import.meta.url;
+   //const currentModulePath = import.meta.url;
   // const buildDistPath = path.join(new URL('.', currentModulePath).pathname.slice(1), `output/${id}/dist`);
-   const buildDistPath = path.join(`opt/render/project/src`, `/output/${id}/dist`);
+  
+   const __filename = fileURLToPath(import.meta.url);
+   const __dirname = dirname(__filename);
+   const buildDistPath = path.join(__dirname, `/output/${id}/dist`);
    console.log(buildDistPath);
+
+
    const filesPath = await getAllFilesPaths(buildDistPath);
    const storagePathInFirebase = `build/${id}`; // Replace with the desired storage path
    
