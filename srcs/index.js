@@ -23,12 +23,12 @@ app.post('/deploy',async(req,res)=>{
     await simpleGit().clone(repoUrl,`output/${id}`);
     await buildProject(id);
 
-   const currentModulePath = import.meta.url;
-   const buildDistPath = path.join(new URL('.', currentModulePath).pathname.slice(1), `output/${id}/dist`);
+  // const currentModulePath = import.meta.url;
+   //const buildDistPath = path.join(new URL('.', currentModulePath).pathname.slice(1), `output/${id}/dist`);
   
-   //const __filename = fileURLToPath(import.meta.url);
-  // const __dirname = dirname(__filename);
-  // const buildDistPath = path.join(__dirname, `/output/${id}/dist`);
+   const __filename = fileURLToPath(import.meta.url);
+   const __dirname = dirname(__filename);
+   const buildDistPath = path.join(__dirname, `/output/${id}/dist`);
    //const buildDistPath = path.join(`/output/${id}/dist`);
    console.log(buildDistPath);
 
