@@ -28,6 +28,7 @@
     "express": "^4.18.2",
     "firebase": "^10.8.0",
     "firebase-admin": "^12.0.0",
+    "git": "^0.1.5",
     "redis": "^4.6.13",
     "simple-git": "^3.22.0"
   }
